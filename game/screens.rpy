@@ -750,12 +750,6 @@ screen preferences():
                         textbutton _("Window") action Preference("display", "window")
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
 
-                vbox:
-                    style_prefix "radio"
-                    label _("AI Type")
-                    textbutton _("LLM") action [SetVariable("llm_mode", True)]
-                    textbutton _("API") action [SetVariable("llm_mode", False)]
-
 
 
 
