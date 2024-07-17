@@ -1,6 +1,14 @@
 ﻿
 
 
+label custom_chat_model_label:
+    $ model = renpy.input("Enter a model", f"{persistent.chatModel}").strip()
+    $ persistent.chatModel = model 
+    $ renpy.save_persistent()
+    return
+
+
+
 
 label start:
 
@@ -11,3 +19,6 @@ label start:
 
 
     return
+
+
+
