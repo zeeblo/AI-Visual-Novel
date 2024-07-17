@@ -1,0 +1,7 @@
+{
+    "settings": {
+        "context_window": 1024,
+        "temp": 0.6,
+        "seed": 1
+    }
+}
