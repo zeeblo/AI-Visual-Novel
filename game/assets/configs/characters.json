@@ -25,14 +25,6 @@
             "really happy": "really happy.png",
             "sad": "sad.png",
             "surprised": "surprised.png"
-        },
-        "left": {
-            "explain": "2l.png",
-            "relaxed": "1l.png"
-        },
-        "right": {
-            "explain": "2r.png",
-            "relaxed": "1r.png"
         }
     },
 
@@ -70,14 +62,6 @@
             "shocked": "shocked.png",
             "sleepy": "sleepy.png",
             "smug": "smug.png"
-        },
-        "left": {
-            "relaxed": "1l.png",
-            "excited": "2l.png"
-        },
-        "right": {
-            "relaxed": "1r.png",
-            "excited": "2r.png"
         }
     }
 }
