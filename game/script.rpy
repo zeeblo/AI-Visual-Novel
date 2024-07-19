@@ -124,6 +124,14 @@ label AICharacter:
 
 
 
+    image full_sprite:
+        zoom 0.76
+        im.Composite(Info().characterSize(current_char_title), (0, 0), f"characters/{current_char}/{current_sprite}")
+        uppies
+
+    show full_sprite
+
+
     if resume:
         $ last_msg = Data(path_to_user_dir=pathSetup).getLastMessageClean
 
@@ -139,6 +147,12 @@ label AICharacter:
 
     else:
         $ renpy.say(current_char, convo)
+
+
+
+
+
+
 
 
     ###########################
