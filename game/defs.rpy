@@ -5,6 +5,8 @@ define default_context_window = "1024"
 define default_temp = "6"
 define default_seed = "random"
 define chatModel = "llama3"
+define chatToken = ""
+define imgToken = None
 define default_prompt_header = "level1"
 
 default persistent.context_window = default_context_window
@@ -19,18 +21,19 @@ default prompt_header = persistent.prompt_header
 
 
 
-default persistent.chatModel = None
+
 default persistent.imgModel = None
-#define persistent.charVoice = None
-default persistent.chatToken = None
-define persistent.imgToken = None
-default persistent.generate_imgs = False
+default persistent.chatModel = chatModel
+
+define persistent.imgToken = imgToken
+default persistent.chatToken = chatToken
+
+
 
 
 default llm_mode = True
 default generate_imgs = persistent.generate_imgs
-default persistent.chatModel = chatModel
-default persistent.chatToken = ""
+default persistent.generate_imgs = False
 
 
 

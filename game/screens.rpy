@@ -831,9 +831,9 @@ screen preferences():
 
 
                 vbox:
-                    textbutton _("Model Name") action Jump("custom_chat_model_label")
-                    textbutton _("Chat Token") action Jump("chat_token_label")
-                    textbutton _("Image Token") action Jump("img_token_label")
+                    textbutton _("Model Name") action Function(FinishEnterModelName) # Show(screen="model_name_input", message="Model Name", ok_action=Function(FinishEnterModelName))
+                    textbutton _("Chat Token") action Function(UpdateChatToken) # Show(screen="chat_token_input", message="Enter Chat Token", ok_action=Function(UpdateChatToken))
+                    textbutton _("Image Token") action Function(UpdateImgToken) # Show(screen="img_token_input", message="Enter Image Token", ok_action=Function(UpdateImgToken))
 
 
 
@@ -924,14 +924,14 @@ init python:
         renpy.jump_out_of_context("start")
 
     def FinishEnterModelName():
-        persistent.chatModel = chatModel
-        renpy.save_persistent()
-        renpy.hide_screen("model_name_input")
+        renpy.call_in_new_context("custom_chat_model_label")
 
 
-    def FinishUpdateModelName(modelname):
-        persistent.chatModel = modelname
-        renpy.save_persistent()
+    def UpdateChatToken():
+        renpy.call_in_new_context("chat_token_label")
+
+    def UpdateImgToken():
+        renpy.call_in_new_context("img_token_label")
 
 
 

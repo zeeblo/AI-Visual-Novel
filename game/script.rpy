@@ -38,7 +38,6 @@ label start:
         config.autosave_on_choice = False
 
 
-
     jump AICharacter
 
     return
