@@ -766,8 +766,8 @@ screen preferences():
                 vbox:
                     style_prefix "radio"
                     label _("Generate Images")
-                    textbutton _("Enabled") action [SetVariable("generate_imgs", True)]
-                    textbutton _("Disabled") action [SetVariable("generate_imgs", False)]
+                    textbutton _("Enabled") action [SetVariable("generate_imgs", True), SetVariable("persistent.generate_imgs", True)]
+                    textbutton _("Disabled") action [SetVariable("generate_imgs", False), SetVariable("persistent.generate_imgs", False)]
 
 
                 vbox:

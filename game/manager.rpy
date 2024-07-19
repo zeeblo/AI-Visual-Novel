@@ -67,7 +67,7 @@ init python:
                     self.ai_art_mode = True
                     return guide
             else:
-                self.ai_art_mode = False
+                return self.dbase.updateSceneData("background", bg_scenes['default']["art room"])
 
 
 
@@ -162,7 +162,7 @@ init python:
             # Basically, if the user has generate_imgs enabled then the AI should
             # come up with different scene names if it's not in the default scenes.
             # If it's disabled then the AI should not allow the user to go anywhere else
-            conditional = "" if persistent.generate_imgs else Info().getReminder["conditional"].replace("{{char}}", self.character_name)
+            conditional = "the user can optionally go anywhere not listed as well" if persistent.generate_imgs else Info().getReminder["conditional"].replace("{{char}}", self.character_name)
             string = string.replace("{{conditional}}", f"- {conditional}")
 
             string = raw_examples[0]['content'] = string

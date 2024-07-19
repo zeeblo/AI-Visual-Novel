@@ -18,7 +18,7 @@ label chat_token_label:
 
 label img_token_label:
     $ token = renpy.input("Enter API Key", f"{persistent.imgToken}").strip()
-    $ persistent.chatModel = token
+    $ persistent.imgToken = token
     $ renpy.save_persistent()
     return
 
