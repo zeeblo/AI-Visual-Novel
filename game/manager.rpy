@@ -165,8 +165,8 @@ init python:
             raw_examples[0]['content'] = string
 
 
-            with open(self.full_path + f"/chathistory2.json", 'w') as f:
-                json.dump(raw_examples, f, indent=2)
+            with open(self.full_path + f"/full_history.json", 'w') as f:
+                json.dump(raw_examples + self.chathistory, f, indent=2)
 
             return raw_examples
 
