@@ -51,7 +51,7 @@ init python:
             ai_art_path = config.basedir + "/game/images/bg/"+ guide + ".png"
             if os.path.exists(ai_art_path):
                 guide = guide + ".png"
-                self.updateSceneData("background", guide)
+                self.dbase.updateSceneData("background", guide)
                 self.scene = guide
                 self.ai_art_mode = True
                 return self.scene

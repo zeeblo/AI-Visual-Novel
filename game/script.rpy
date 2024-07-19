@@ -179,6 +179,7 @@ label AICharacter:
 
         if raw_msg.startswith("[SCENE]"):
             image _bg:
+                zoom 1.5
                 "bg/[current_background]"
             scene _bg
 
