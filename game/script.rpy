@@ -64,6 +64,7 @@ label AICharacter:
         if characterSelect.lower() not in all_characters:
             "This character was not found. Try again."
 
+    $ characterSelect = characterSelect.title()
 
     # "num" is a default value set to None. If a number is
     # assigned to it, that means the user is opening an old file
@@ -185,6 +186,7 @@ label AICharacter:
             show screen error_popup(message=final_msg)
         else:
             image full_sprite:
+                zoom 0.76
                 im.Composite(Info().characterSize(current_char_title), (0, 0), f"characters/{current_char}/{current_sprite}")
                 uppies
 

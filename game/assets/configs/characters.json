@@ -14,8 +14,8 @@
             "surprised": "surprised.png"
         },
         "thumbnail": "",
-        "size-x": 640,
-        "size-y": 711
+        "size-x": 960,
+        "size-y": 960
     },
 
     "Amy":{
@@ -37,7 +37,7 @@
             "smug": "smug.png"
         },
         "thumbnail": "",
-        "size-x": 640,
-        "size-y": 711
+        "size-x": 960,
+        "size-y": 960
     }
 }
