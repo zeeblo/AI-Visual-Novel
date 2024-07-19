@@ -23,3 +23,10 @@ errors.txt
 **/game/saves/*
 
 **/game/cache/*
+
+
+**/game/images/characters/*
+
+!**/game/images/characters/Amy/*
+
+!**/game/images/characters/Sam/*

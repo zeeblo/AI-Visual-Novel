@@ -24,10 +24,7 @@ label img_token_label:
 
 
 
-label go_back:
-    "..."
-    $ MainMenu()
-    return
+
 
 
 label start:
