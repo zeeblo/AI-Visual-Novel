@@ -82,9 +82,8 @@ init python:
                 if scene in bg_scenes[key]:
                     return self.dbase.updateSceneData("background", bg_scenes[key][scene])
 
-            if "[SCENE]" in scene:
-                scene = scene.split("[SCENE]")[1].split("[FACE]")[0].strip()
-                return self.generate_ai_background(scene)
+            scene = scene.split("[SCENE]")[1].split("[FACE]")[0].strip()
+            return self.generate_ai_background(scene)
 
             return self.dbase.updateSceneData("background", bg_scenes['default']["art room"])
 
