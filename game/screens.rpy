@@ -770,11 +770,11 @@ screen preferences():
                     textbutton _("Disabled") action [SetVariable("generate_imgs", False), SetVariable("persistent.generate_imgs", False)]
 
 
-                vbox:
-                    style_prefix "radio"
-                    label _("AI Type")
-                    textbutton _("Local Model") action [SetVariable("llm_mode", True)]
-                    textbutton _("API") action [SetVariable("llm_mode", False)]
+                #vbox:
+                #    style_prefix "radio"
+                #    label _("AI Type")
+                #    textbutton _("Local Model") action [SetVariable("llm_mode", True)]
+                #    textbutton _("API") action [SetVariable("llm_mode", False)]
 
 
             null height (4 * gui.pref_spacing)
