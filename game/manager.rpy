@@ -267,6 +267,7 @@ init python:
         def ai_response(self, userInput):
             """Gets ai generated text based off given prompt"""
 
+            emotions = ', '.join([e for e in Configs().characters[self.character_name.title()]['sprite']])
             reminder = "" if self.retrying == False else Info().getReminder["emotes"].replace("{{emotes}}", emotions)
 
             # Log user input
