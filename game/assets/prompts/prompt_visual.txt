@@ -14,7 +14,8 @@ ROLEPLAY RULES
 FORMAT RULES
 
 - [SCENE] type response will be the name of the current scene the user is in. These are the default scenes: {{scenes}}
-- [FACE] type response is the expression the character is making.
+- {{conditional}}
+- [FACE] type response is the expression the character is making. {{char}} can only make these faces: {{emotes}}
 - [CONTENT] should be you actually speaking as {{char}}
 
 

@@ -252,10 +252,10 @@ screen quick_menu():
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             #textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
+            textbutton _("Auto") action NullAction() # Preference("auto-forward", "toggle")
+            textbutton _("Save") action NullAction()
+            #textbutton _("Q.Save") action QuickSave()
+            #textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
 
@@ -285,6 +285,10 @@ style quick_button_text:
 ## This screen is included in the main and game menus, and provides navigation
 ## to other menus, and to start the game.
 
+
+
+
+
 screen navigation():
 
     vbox:
@@ -297,13 +301,13 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(UsernameCheck)))
 
         else:
 
             textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Save") action NullAction() #ShowMenu("save")
 
         textbutton _("Load") action ShowMenu("load")
 
@@ -597,6 +601,14 @@ screen load():
     use custom_save_screen()
 
 
+
+init python:
+    import os
+    chats = ""
+    try: chats = os.listdir(f"{config.basedir}/chats")
+    except FileNotFoundError: pass
+
+
 screen file_slots(title):
 
     default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
@@ -751,7 +763,18 @@ screen preferences():
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
 
 
+                vbox:
+                    style_prefix "radio"
+                    label _("Generate Images")
+                    textbutton _("Enabled") action [SetVariable("generate_imgs", True)]
+                    textbutton _("Disabled") action [SetVariable("generate_imgs", False)]
 
+
+                vbox:
+                    style_prefix "radio"
+                    label _("AI Type")
+                    textbutton _("Local Model") action [SetVariable("llm_mode", True)]
+                    textbutton _("API") action [SetVariable("llm_mode", False)]
 
 
             null height (4 * gui.pref_spacing)
@@ -809,6 +832,8 @@ screen preferences():
 
                 vbox:
                     textbutton _("Model Name") action Jump("custom_chat_model_label")
+                    textbutton _("Chat Token") action Jump("chat_token_label")
+                    textbutton _("Image Token") action Jump("img_model_label")
 
 
 
@@ -891,6 +916,13 @@ style slider_vbox:
 
 init python:
 
+    def UsernameCheck():
+        if not player: return
+        persistent.playername = player
+        renpy.save_persistent()
+        renpy.hide_screen("name_input")
+        renpy.jump_out_of_context("start")
+
     def FinishEnterModelName():
         persistent.chatModel = chatModel
         renpy.save_persistent()
@@ -922,7 +954,7 @@ screen custom_save_screen():
                     style_prefix "navigation_button_text"
 
                     xpos 20
-                    
+
                     hover_sound "gui/sfx/hover.ogg"
                     activate_sound "gui/sfx/select.ogg"
                     action Hide("custom_save_screen")
@@ -948,6 +980,35 @@ screen custom_save_screen():
 
 
 
+
+
+screen name_input(message, ok_action):
+    modal True
+    zorder 200
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+    key "K_RETURN" action ok_action
+
+    frame:
+
+        has vbox:
+            xalign .5
+            yalign .5
+            spacing 30
+
+        label _(message):
+            style "confirm_prompt"
+            xalign 0.5
+
+        input default "" value VariableInputValue("player") length 12 allow "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+
+        hbox:
+            xalign 0.5
+            spacing 100
+
+            textbutton _("OK") action ok_action
 
 
 

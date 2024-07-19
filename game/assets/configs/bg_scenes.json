@@ -2,7 +2,7 @@
     "default": {
         "art room": "smp2_ar_day2.webp",
         "music room": "smp2_mr_day2.webp",
-        "swimming pool": "smp2_sp1_evening3.webp"
+        "outside": "smp2_sp1_evening3.webp"
     },
 
     "checks": {

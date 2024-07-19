@@ -1,19 +1,6 @@
 {
     "Sam":{
-        "full_sprites": [
-            "angry",
-            "determined",
-            "glad",
-            "happy",
-            "laugh",
-            "nervous",
-            "neutral",
-            "really angry",
-            "really happy",
-            "sad",
-            "surprised"
-        ],
-        "head": {
+        "sprite": {
             "angry": "angry.png",
             "determined": "determined.png",
             "glad": "glad.png",
@@ -25,28 +12,14 @@
             "really happy": "really happy.png",
             "sad": "sad.png",
             "surprised": "surprised.png"
-        }
+        },
+        "thumbnail": "",
+        "size-x": 640,
+        "size-y": 711
     },
 
     "Amy":{
-        "full_sprites": [
-            "angry",
-            "annoyed",
-            "crying",
-            "curious",
-            "delighted",
-            "exhausted",
-            "glad",
-            "happy",
-            "neutral",
-            "prideful",
-            "really angry",
-            "sad",
-            "shocked",
-            "sleepy",
-            "smug"
-        ],
-        "head": {
+        "sprite": {
             "angry": "angry.png",
             "annoyed": "annoyed.png",
             "crying": "crying.png",
@@ -62,6 +35,9 @@
             "shocked": "shocked.png",
             "sleepy": "sleepy.png",
             "smug": "smug.png"
-        }
+        },
+        "thumbnail": "",
+        "size-x": 640,
+        "size-y": 711
     }
 }

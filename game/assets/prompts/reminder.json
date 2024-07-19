@@ -1,0 +1,15 @@
+{
+  "emotes": " (Remember that the only [FACE] type responses should be: <emotes>",
+  "generic_response": "[SCENE] art room [FACE] happy [FACE] happy [CONTENT] ... [END]",
+  "backup_prompt": [
+      {
+        "role": "user",
+        "content": "continue"
+      },
+      {
+        "role": "assistant",
+        "content": "[SCENE] art room [FACE] happy [CONTENT] Hey [END]"
+      }
+    ],
+  "conditional": "If the user asks to go anywhere that isn't listed as a default scene, then {{char}} must say they can't and list the available scenes."
+}

@@ -24,9 +24,11 @@ default persistent.imgModel = None
 #define persistent.charVoice = None
 default persistent.chatToken = None
 define persistent.imgToken = None
+default persistent.generate_imgs = False
 
 
 default llm_mode = True
+default generate_imgs = persistent.generate_imgs
 default persistent.chatModel = chatModel
 default persistent.chatToken = ""
 
@@ -52,3 +54,5 @@ define chat_model_dict = {
 }
 
 define persistent.chatFolderName = None
+default persistent.playername = ""
+default player = persistent.playername
