@@ -245,9 +245,8 @@ init python:
         def checkForBadFormat(self, response):
             """It writes a default narration if the ai generates an incorrectly formatted response 
             Only runs once when the realm is first loaded."""
-            if self.dbase.getSceneData("character") == "":
-                if "[SCENE]" not in response or "[FACE]" not in response or "[CONTENT]" not in response:
-                    response = "[SCENE] art room [FACE] happy [CONTENT] Hey [END]"
+            if "[SCENE]" not in response or "[FACE]" not in response or "[CONTENT]" not in response:
+                response = "[SCENE] art room [FACE] happy [CONTENT] Hey [END]"
             return response
 
 
