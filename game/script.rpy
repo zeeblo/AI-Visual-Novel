@@ -111,13 +111,17 @@ label AICharacter:
     $ current_char_title = current_char.title()
     $ current_sprite = Data(path_to_user_dir=pathSetup).getSceneData("sprite")
     $ current_background = Data(path_to_user_dir=pathSetup).getSceneData("background")
+    $ ai_background = Data(path_to_user_dir=pathSetup).getSceneData("gen")
 
-
-    image _bg:
-        zoom 1.5
-        "bg/[current_background]"
-    scene _bg
-
+    if ai_background == "":
+        image _bg:
+            "bg/[current_background]"
+        scene _bg
+    else:
+        image ai_bg:
+            zoom 1.5
+            "bg/[current_background]"
+        scene ai_bg
 
 
 
@@ -176,14 +180,17 @@ label AICharacter:
         $ current_char_title = current_char.title()
         $ current_sprite = Data(path_to_user_dir=pathSetup).getSceneData("sprite")
         $ current_background = Data(path_to_user_dir=pathSetup).getSceneData("background")
+        $ ai_background = Data(path_to_user_dir=pathSetup).getSceneData("gen")
 
-        if raw_msg.startswith("[SCENE]"):
+        if ai_background == "":
             image _bg:
-                zoom 1.5
                 "bg/[current_background]"
             scene _bg
-
-
+        else:
+            image ai_bg:
+                zoom 1.5
+                "bg/[current_background]"
+            scene ai_bg
 
         if final_msg.startswith("<Error>"):
             show screen error_popup(message=final_msg)

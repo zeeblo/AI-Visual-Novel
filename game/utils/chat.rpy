@@ -19,7 +19,8 @@ init python:
                                 "music": "none",
                                 "background": "",
                                 "character": "",
-                                "sprite": ""
+                                "sprite": "",
+                                "gen": ""
                             }
 
             with open(f"{config.basedir}/game/assets/prompts/prompt_templates.json") as f:

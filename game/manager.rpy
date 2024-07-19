@@ -52,6 +52,7 @@ init python:
             if os.path.exists(ai_art_path):
                 guide = guide + ".png"
                 self.dbase.updateSceneData("background", guide)
+                self.dbase.updateSceneData("gen", "y")
                 self.scene = guide
                 self.ai_art_mode = True
                 return self.scene
@@ -63,9 +64,11 @@ init python:
                 with open(f"{config.basedir}/game/images/bg/{guide}", "wb") as f:
                     f.write(base64.b64decode(result["image"]))
                     self.dbase.updateSceneData("background", guide)
+                    self.dbase.updateSceneData("gen", "y")
                     self.scene = guide
                     return guide
             else:
+                self.dbase.updateSceneData("gen", "")
                 return self.dbase.updateSceneData("background", bg_scenes['default']["art room"])
 
 
@@ -79,6 +82,7 @@ init python:
             bg_scenes = Configs().bg_scenes
             for key in ('default', 'checks'):
                 if scene in bg_scenes[key]:
+                    self.dbase.updateSceneData("gen", "")
                     return self.dbase.updateSceneData("background", bg_scenes[key][scene])
 
             return self.generate_ai_background(scene)
