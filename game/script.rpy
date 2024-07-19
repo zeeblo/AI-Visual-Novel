@@ -56,15 +56,6 @@ label AICharacter:
 
     $ resume = None # Used to check if a file has been loaded
 
-    "Type one of the character names in characters.json to start interacting with that character. (Not case sensitive)"
-    $ all_characters = Info().characters
-    $ characterSelect = ""
-    while characterSelect.lower() not in all_characters:
-        $ characterSelect = renpy.input("Character Name: ", "Sam", allow=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_").strip()
-        if characterSelect.lower() not in all_characters:
-            "This character was not found. Try again."
-
-    $ characterSelect = characterSelect.title()
 
     # "num" is a default value set to None. If a number is
     # assigned to it, that means the user is opening an old file
@@ -79,6 +70,20 @@ label AICharacter:
             $ SetVariable("num", None)
 
     else:
+        "Type a character name in characters.json to start interacting with that character. (Not case sensitive)"
+        $ all_characters = Info().characters
+        $ characterSelect = ""
+        while characterSelect.lower() not in all_characters:
+            $ characterSelect = renpy.input("Character Name: ", "Sam", allow=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_").strip()
+            if characterSelect.lower() not in all_characters:
+                "This character was not found. Try again."
+
+        $ characterSelect = characterSelect.title()
+
+
+        ###########################
+        # Start creating folders and chat
+        ###########################
         $ chatFolderName = renpy.input("Name This Realm: ", "realm", allow=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_").strip()
         $ chatSetup = SetupChat(chat_name=chatFolderName, character_name=characterSelect)
         $ pathSetup = chatSetup.setup()
