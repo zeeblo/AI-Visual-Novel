@@ -147,16 +147,17 @@ init python:
         def removePlaceholders(self):
             """remove placeholders in json files"""
             level_normal = Info().getExamplePrompts[f"{self.character_name}"]
-            raw_examples = level_normal
+            raw_examples = level_normal 
 
             bg_scenes = [s for s in Configs().bg_scenes["default"]]
             emotions = ', '.join([e for e in Configs().characters[self.character_name.title()]['sprite']])
             backgrounds = ', '.join(bg_scenes)
 
-            string = raw_examples[0]['content'].replace("{{user}}", persistent.playername)
+            string = raw_examples[0]['content'].replace("{{format}}", Info().format["roleplay"])
             string = string.replace("{{char}}", self.character_name)
             string = string.replace("{{emotes}}", emotions)
             string = string.replace("{{scenes}}", backgrounds)
+            string = string.replace("{{user}}", persistent.playername)
 
 
             # Basically, if the user has generate_imgs enabled then the AI should

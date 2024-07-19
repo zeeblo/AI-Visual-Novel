@@ -150,3 +150,10 @@ init python:
             return chars[name]["size-x"], chars[name]["size-y"]
 
 
+        @property
+        def format(self):
+            with open(config.basedir + "/game/assets/prompts/prompt_format.json", "r") as f:
+                format = json.load(f)
+            return format
+
+
