@@ -185,7 +185,7 @@ label AICharacter:
             show screen error_popup(message=final_msg)
         else:
             image full_sprite:
-                im.Composite((960, 960), (0, 0), f"characters/{current_char}/{current_sprite}")
+                im.Composite(Info().characterSize(current_char_title), (0, 0), f"characters/{current_char}/{current_sprite}")
                 uppies
 
             show full_sprite

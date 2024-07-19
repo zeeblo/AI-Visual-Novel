@@ -144,3 +144,9 @@ init python:
                 all_chars.append(i.lower())
             return all_chars
 
+
+        def characterSize(self, name):
+            chars = Configs().characters
+            return chars[name]["size-x"], chars[name]["size-y"]
+
+
