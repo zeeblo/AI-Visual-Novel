@@ -1,5 +1,5 @@
 {
-  "emotes": " (Remember that the only [FACE] type responses should be: <emotes>",
+  "emotes": " (Remember that the only [FACE] type responses should be: {{emotes}}",
   "generic_response": "[SCENE] art room [FACE] happy [FACE] happy [CONTENT] ... [END]",
   "backup_prompt": [
       {
