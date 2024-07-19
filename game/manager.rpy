@@ -145,7 +145,7 @@ init python:
             level_normal = Info().getExamplePrompts[f"{self.character_name}"]
             raw_examples = level_normal
 
-            bg_scenes = [s for s in Configs().bg_scenes["default"]] + [s for s in Configs().bg_scenes["checks"]]
+            bg_scenes = [s for s in Configs().bg_scenes["default"]]
             emotions = ', '.join([e for e in Configs().characters[self.character_name.title()]['sprite']])
             backgrounds = ', '.join(bg_scenes)
 
