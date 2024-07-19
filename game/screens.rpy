@@ -833,7 +833,7 @@ screen preferences():
                 vbox:
                     textbutton _("Model Name") action Jump("custom_chat_model_label")
                     textbutton _("Chat Token") action Jump("chat_token_label")
-                    textbutton _("Image Token") action Jump("img_model_label")
+                    textbutton _("Image Token") action Jump("img_token_label")
 
 
 
