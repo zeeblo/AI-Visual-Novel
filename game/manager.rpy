@@ -7,6 +7,7 @@ init python:
     import time
     import io
     import re
+    import base64
 
 
     with open(config.basedir + "/game/assets/prompts/prompt_templates.json", "r") as f:
@@ -24,7 +25,6 @@ init python:
             self.rnd = random.randint(1,7)
             self.retrying = False
             self.dbase = Data(path_to_user_dir=self.full_path)
-            self.ai_art_mode = False
 
 
 
@@ -51,20 +51,19 @@ init python:
             ai_art_path = config.basedir + "/game/images/bg/"+ guide + ".png"
             if os.path.exists(ai_art_path):
                 guide = guide + ".png"
-                self.updateSceneData("Scene", guide)
+                self.updateSceneData("background", guide)
                 self.scene = guide
                 self.ai_art_mode = True
                 return self.scene
 
             
-            result = self.getimgai(guide)
+            result = ImageModel().getimgai(guide)
             guide = guide + ".png"
             if "error" not in result:
                 with open(f"{config.basedir}/game/images/bg/{guide}", "wb") as f:
-                    f.write(base64.b64decode(r["image"]))
-                    self.updateSceneData("Scene", guide)
+                    f.write(base64.b64decode(result["image"]))
+                    self.dbase.updateSceneData("background", guide)
                     self.scene = guide
-                    self.ai_art_mode = True
                     return guide
             else:
                 return self.dbase.updateSceneData("background", bg_scenes['default']["art room"])
@@ -82,10 +81,8 @@ init python:
                 if scene in bg_scenes[key]:
                     return self.dbase.updateSceneData("background", bg_scenes[key][scene])
 
-            scene = scene.split("[SCENE]")[1].split("[FACE]")[0].strip()
             return self.generate_ai_background(scene)
 
-            return self.dbase.updateSceneData("background", bg_scenes['default']["art room"])
 
 
 
@@ -166,6 +163,10 @@ init python:
 
             string = raw_examples[0]['content'] = string
             raw_examples[0]['content'] = string
+
+
+            with open(self.full_path + f"/chathistory2.json", 'w') as f:
+                json.dump(raw_examples, f, indent=2)
 
             return raw_examples
 

@@ -28,7 +28,7 @@ init python:
                 response = requests.post(url, headers=headers, json=payload)
                 response.raise_for_status()
                 data = response.json()
-                return data["choices"][0]["message"]["content"] + " [END]"
+                return data["choices"][0]["message"]["content"].strip() + " [END]"
 
             except requests.exceptions.RequestException as e:
                 print(f"Error making request: {e}")
@@ -54,7 +54,7 @@ init python:
                 response = requests.post(url, headers=headers, json=payload)
                 response.raise_for_status()
                 data = response.json()
-                return data["choices"][0]["message"]["content"] + " [END]"
+                return data["choices"][0]["message"]["content"].strip() + " [END]"
 
             except requests.exceptions.RequestException as e:
                 print(f"Error making request: {e}")

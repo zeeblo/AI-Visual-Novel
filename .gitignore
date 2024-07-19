@@ -30,3 +30,10 @@ errors.txt
 !**/game/images/characters/Amy/*
 
 !**/game/images/characters/Sam/*
+
+
+**/game/images/bg/*
+
+!**/game/images/bg/smp2_ar_day2.webp
+!**/game/images/bg/smp2_mr_day2.webp
+!**/game/images/bg/smp2_sp1_evening3.webp
