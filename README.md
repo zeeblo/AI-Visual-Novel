@@ -1,5 +1,7 @@
 A basic AI visual novel template.
 
+I'm using Renpy 8.2.1 to run this.
+
 **Features:**
 - Generated replies
 - Local Language models
